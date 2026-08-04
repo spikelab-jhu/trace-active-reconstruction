@@ -1,0 +1,32 @@
+defaults:
+  - planner: random
+  - mapper: incremental
+  - simulator: habitat
+  - scene: replica/office0
+  - gui: gui
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+experiment:
+  output_dir: ./experiments
+  exp_id: test
+  run_id : 0
+  budget: 300 # seconds
+  record_interval: 60
+  record_rgbd: false
+  record_global_path: true
+  # horizon-based control (null -> use time budget / record_interval above).
+  max_horizons: null            # stop after this many horizons (ignores budget)
+  record_horizon_interval: null # save every N horizons + the final one
+  # extra checkpoints at fixed mission-time marks (seconds), e.g. [300, 500],
+  # saved the first horizon t_mission crosses each -- for fixed-budget
+  # comparison against time-budget baselines (works in horizon mode too).
+  extra_save_times: null
+
+use_gui: true
+debug: false

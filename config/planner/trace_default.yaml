@@ -1,0 +1,56 @@
+# Public reproduction preset for TRACE.
+planner_name: ergodic
+type: ergodic
+
+radius: 0.5
+init_pose: [[0, 0, 1, 0], [-1, 0, 0, 0], [0, -1, 0, 0], [0, 0, 0, 1]]
+robot_size: 0.3
+pitch_angle: null
+sample_num: 100
+max_roi_sample_num: 0
+use_confidence: false
+path_length_factor: 0.5
+
+horizon_waypoints: 9
+
+max_step: 2
+preview_pause: 0.1
+batch_train_steps: 12
+gaussian_samples_per_horizon: 10
+
+info_map_version: v2
+alpha_unexplored: 2.0
+alpha_frontier: 0.5
+beta_gauss: 4.0
+alpha_unbuilt: 2.0
+well_built_count_thresh: 3
+
+well_built_conf_thresh: 0.9
+
+info_aggregate_radius: 2
+
+ilqr_iters: 40
+ilqr_lr: 0.05
+ilqr_lr_decay: 0.97
+
+kernel_sigma: 0.3
+pitch_max: 1.2
+gaze_depths: [0.5, 1.0, 1.5, 2.0, 2.5]
+gaze_lambda: 2.0
+gaze_safe_decay: 15.0
+collision_lambda: 10.0
+ctrl_reg_pos: 5.0
+# ctrl_reg_pos: 1.0
+ctrl_reg_yaw: 0
+ctrl_reg_pitch: 0
+step_barrier_lambda: 10.0
+pitch_barrier_lambda: 10.0
+bbox_barrier_lambda: 80.0
+final_polish_steps: 0
+geometry_window: 5
+geometry_eps: 1.0e-9
+footprint_depletion_enabled: true
+footprint_depletion_rate: 0.6
+footprint_sigma: 0.25
+footprint_safe_decay: 15.0
+collision_segment_samples: -1
